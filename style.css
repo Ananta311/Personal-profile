@@ -1,0 +1,557 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Background Classes */
+.bg-gray { background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%); }
+.bg-white { background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); }
+.bg-blue { background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%); }
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4A90E2;
+}
+
+.logo-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.logo-text {
+    color: #333;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #4A90E2;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 2rem 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #4A90E2, #357ABD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.highlight {
+    color: #4A90E2;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #4A90E2;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #357ABD;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(74, 144, 226, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #4A90E2;
+    border: 2px solid #4A90E2;
+}
+
+.btn-secondary:hover {
+    background: #4A90E2;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Section Common */
+.section {
+    padding: 100px 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+/* Card */
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 235px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* List */
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.list-icon {
+    width: 50px;
+    height: 50px;
+    background: #4A90E2;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4A90E2;
+}
+
+/* Footer */
+.footer {
+    background: rgba(0,0,0,0.8);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        background: white;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Certificate Grid - 6 Cards */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cert-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.cert-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+.cert-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.cert-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.cert-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.cert-overlay i {
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.cert-content {
+    padding: 1.5rem;
+}
+
+.cert-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.cert-content p {
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.cert-date {
+    display: inline-block;
+    background: linear-gradient(45deg, #4A90E2, #357ABD);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Responsive Certificate Grid */
+@media (max-width: 768px) {
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .cert-card:hover {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .certificates-grid {
+        padding: 0 1rem;
+    }
+}
+
+/* Education Timeline - 4 Stages (SD, SMP, SMK, Kuliah) */
+.education-timeline {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.edu-card {
+    position: relative;
+    display: flex;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    border-left: 5px solid transparent;
+    backdrop-filter: blur(10px);
+    gap: 1.5rem;
+    overflow: hidden;
+}
+
+.edu-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4A90E2, #357ABD);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.edu-card:hover::before {
+    opacity: 1;
+}
+
+.edu-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(74, 144, 226, 0.25);
+    border-left-color: #4A90E2;
+}
+
+/* Number Badge */
+.edu-number {
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #4A90E2, #357ABD);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+    z-index: 2;
+}
+
+/* Icons per jenjang */
+.edu-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.edu-sd .edu-icon { background: linear-gradient(135deg, #FF6B6B, #FF8E8E); }
+.edu-smp .edu-icon { background: linear-gradient(135deg, #4ECDC4, #44A08D); }
+.edu-smk .edu-icon { background: linear-gradient(135deg, #45B7D1, #96C93D); }
+.edu-kuliah .edu-icon { background: linear-gradient(135deg, #4A90E2, #357ABD); }
+
+.edu-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.edu-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.edu-institution {
+    font-weight: 600;
+    color: #4A90E2;
+    font-size: 1.1rem;
+}
+
+.edu-period {
+    background: #f8f9fa;
+    color: #666;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.edu-desc {
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.edu-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 1rem;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.edu-sd .stat-item { background: #FF6B6B; color: white; }
+.edu-smp .stat-item { background: #4ECDC4; color: white; }
+.edu-smk .stat-item { background: #45B7D1; color: white; }
+.edu-kuliah .stat-item { background: #4A90E2; color: white; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .education-timeline {
+        padding: 0 1rem;
+    }
+    
+    .edu-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+    
+    .edu-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .edu-number {
+        top: -10px;
+        left: 20px;
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .edu-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+}
